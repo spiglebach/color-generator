@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+            
+            height: 100%;
+            width: 100%;
+        
+        }
+        .container {
+            flex-direction: row;
+            display: flex;
+        }
+        .color {
+            height: 200px;
+            width: 200px;
+            margin: 10px;
+        }
+
+
+        #primary, #secondary {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="primary">
+            <h1 id="primaryHeader">Color 1</h1>
+            <div id="primaryColor" class="color"></div>
+        </div>
+        <div id="secondary">
+            <h1 id="secondaryHeader">Color 2</h1>
+            <div id="secondaryColor" class="color"></div>
+        </div>
+    </div>
+</body>
+<script>
+    const primaryColor = document.getElementById("primaryColor");
+    const primaryHeader = document.getElementById("primaryHeader");
+    const red = Math.floor(Math.random() * 256);
+    const green = Math.floor(Math.random() * 256);
+    const blue = Math.floor(Math.random() * 256);
+	primaryHeader.innerHTML = `rgb(${red}, ${green}, ${blue})`
+    primaryColor.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+
+    const secondaryColor = document.getElementById("secondaryColor");
+    const secondaryHeader = document.getElementById("secondaryHeader");
+    const redComplement = 255 - red;
+    const greenComplement = 255 - green;
+    const blueComplement = 255 - blue;
+	secondaryHeader.innerHTML = `rgb(${redComplement}, ${greenComplement}, ${blueComplement})`
+    secondaryColor.style.backgroundColor = `rgb(${redComplement}, ${greenComplement}, ${blueComplement})`;
+</script>
+</html>
